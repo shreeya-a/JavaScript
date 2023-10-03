@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <canvas 
+    style="background-color:aliceblue"
+    id="canvas"
+    width="300"
+    height="300"
+    ></canvas>
+
+    <script>
+        let canvas = document.getElementById("canvas");
+        const context = canvas.getContext("2d");
+
+        //box
+        context.beginPath();
+        context.fillShape = "red";
+        context.rect(0,0,50,50);
+        context.fill();
+
+        //event has all the details of what is happening
+        canvas.addEventListener("mousemove", (event) =>{
+            console.log(event.clientX, event.clientY);
+
+             //clear screen before adding new object //mouse ko shadow create huncha currently
+            <!-- context.clearRect(0,0,300,300); -->
+
+            context.beginPath();
+            context.fillShape = "black";
+            context.arc(event.clientX, event.clientY, 10,0,360);
+            context.fill();
+        });
+
+          //canvas does not listen to keyboard events
+            //document has to be used
+            document.addEventListener("keydown", ()=>{
+                // console.log("key pressed",event);
+                if(event.code === "ArrowUp"){
+                    console.log("jump");
+                }
+            });
+    </script>
+</body>
+</html>
