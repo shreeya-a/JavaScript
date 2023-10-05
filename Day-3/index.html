@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Loop</title>
+</head>
+<body>
+    <canvas
+    id="canvas"
+    width="300"
+    height="300"
+    style="background-color: red;"
+    ></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const c = canvas.getContext("2d");
+
+        c.beginPath();
+        c.rect(0,0,50,50);
+        c.fill();
+
+                //this is game loop
+                let x = 0;
+                let y = 0;
+        setInterval(() => {
+
+            c.clearRect(0,0,300,300);
+            console.log("x =",x);
+            
+            c.beginPath();
+            c.rect(x,y,50,50);
+            c.fill();
+
+            x += 5;
+            y += 5;
+            // minus le upward movement
+            //plus le downward movement 
+        }, 1000 / 60);   //60 FPS
+
+    //    <!-- setTimeout(() => {}, 1000); -->
+        // let i =0;
+
+    //     setTimeout(() => {
+     //       console.log("text")
+     //   }, 1000); 
+    
+        //this is game loop
+     //   setInterval(() => {
+      //      console.log("i =",i);
+      //  }, 1000);
+    </script>
+</body>
+</html>
