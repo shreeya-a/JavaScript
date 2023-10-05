@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click and drop</title>
+</head>
+<body>
+    <canvas
+        id="canvas"
+        style="background-color: black;"
+        width="500"
+        height="500"
+    >
+    </canvas>
+
+    <script>
+
+        const canvas = document.getElementById("canvas");
+        const context = canvas.getContext("2d");
+        let x = 0;
+        let y = 0;
+
+        canvas.addEventListener("mousemove", (event) =>{
+            context.clearRect(0,0,500,500);
+
+            context.beginPath();
+            context.fillStyle = "red";
+            context.arc(event.clientX, event.clientY, 20,0,360);
+            context.fill();
+
+        });
+
+        canvas.addEventListener("click", (event) => {
+         //   console.log(event.clientX, event.clientY);
+            x = event.clientX;
+            y = event.clientY;
+            update();
+            
+        }); 
+
+        //loop
+        function update(){
+            context.clearRect(0,0,500,500);
+            renderArc();
+
+            if(y<480){
+            window.requestAnimationFrame(update);
+            }
+        }
+
+        //ball
+        function renderArc(){
+            context.beginPath();
+            context.fillStyle = "red";
+            context.arc(x,y,20,0,360);
+            context.fill();
+            y += 1;
+        }
+
+    </script>
+
+</body>
+</html>
