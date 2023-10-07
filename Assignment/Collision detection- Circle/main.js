@@ -9,7 +9,7 @@ class Circle{
         // this.x = 50;
         // this.y = 50;
         // this.radius = 50;
-        this.color =color || "blue" ;
+        this.color =color || "blue";
         this.x_speed = 10;
         this.y_speed = 10;
 
