@@ -2,15 +2,24 @@ const canvas = document.getElementById("canvas");
 const c = canvas.getContext("2d");
 
 class Box{
-    constructor(x, y, color, Xspeed, Yspeed){
+    constructor(x, y,color, Xspeed, Yspeed){
         this.x = x || 0;
         this.y = y || 0;
         this.width = 40;
         this.height = 40;
         this.color = color || "red";
-        this.x_speed = 1;
-        this.y_speed = 1;
+        this.x_speed = Xspeed || 1;
+        this.y_speed = Yspeed || 1;
     }
+    // constructor(x, y,Xspeed, color){
+    //     this.x = x || 100;
+    //     this.y = y || 0;
+    //     this.width = 40;
+    //     this.height = 40;
+    //     this.color = color || "red";
+    //     this.x_speed = Xspeed || 1;
+    //     this.y_speed =  1;
+    // }
 
     draw(){
         c.beginPath();
@@ -118,9 +127,14 @@ class Box{
 // }
 
 const box = new Box();
-const box1 = new Box(50);
-const box2 = new Box(150, 90);
-const box3 = new Box(300, 100, "blue");
+const box1 = new Box(300, 150);
+const box2 = new Box(0, 90, "yellow");
+const box3 = new Box(100, 90, "blue");
+
+// const box3 = new Box(300, 200, undefined, "grey");
+// const box3 = new Box(300,"",100, );
+
+
 //game loop
 function animate(){
     c.clearRect(0, 0, canvas.width, canvas.height);
