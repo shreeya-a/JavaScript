@@ -25,16 +25,20 @@ class Circle{
         this.y = this.y + this.y_speed;
     }
     checkColllision(){
-        // left to right
+        // collision on right
         if(this.x + this.radius > canvas.width){
             this.x_speed = -10;
-            // this.y += 100;
-        }else if(this.x < this.radius){
+        }
+        //collision on left
+        else if(this.x < this.radius){
             this.x_speed = 10;
         }
+        //collision on bottom
         if(this.y + this.radius > canvas.height){
             this.y_speed = -10;
-        }else if(this.y < this.radius){
+        }
+        //collision on top
+        else if(this.y < this.radius){
             this.y_speed = 10;
         }
     }
