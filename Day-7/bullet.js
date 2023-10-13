@@ -8,7 +8,7 @@ class Bullet{
             x: 1,
             y: -10,
         };
-        this.size = 100;
+        this.size = 150;
         this.image =  new Image();
         this.image.src = "./images/laserBullet.png";
     }

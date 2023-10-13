@@ -6,11 +6,26 @@ const c = canvas.getContext("2d");
 
 const player = new Player();
 let allBullets = [];
+const enemy = new Enemy();
+let enemies = [];
+
+//every second creates new enemy
+setInterval(() => {
+    const enemy = new Enemy();
+    enemies.push(enemy);
+},1000);
 
 // game loop
 function loop(){
     c.clearRect(0, 0, canvas.width, canvas.height);
     player.update();
+
+    for(let i = 0; i< enemies.length; i++){
+        enemies[i].update();
+        enemies[i].collision(player);
+        enemies[i].collisionWithBullet(allBullets);
+
+    }
 
     for(let i = 0; i< allBullets.length; i++){
         allBullets[i].update();

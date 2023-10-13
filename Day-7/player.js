@@ -12,6 +12,7 @@ class Player{
         this.size = 60;
         this.image = new Image();
         this.image.src = "./images/plane.png";
+        this.isAlive = true;
     }
 
 
@@ -28,8 +29,10 @@ class Player{
     }
 
     update(){
-        this.draw();    
-        this.move();
+        this.draw();   
+        if(this.isAlive){
+            this.move();
+        } 
     }
 
 }
