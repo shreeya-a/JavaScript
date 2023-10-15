@@ -7,6 +7,7 @@ let gameScore = 0;
 const bird = new Bird();
 const bg = new Background(0,0);
 const bg2 = new Background(bg.size.width, 0);
+const pipe = new Pipe();
 
 let allBg =[];
 
@@ -17,6 +18,7 @@ function animate(){
     //game logic
     bg.update(bird.isDead);
     bg2.update(bird.isDead);
+    pipe.update(bird.isDead);
     bird.update();
 
     //score
