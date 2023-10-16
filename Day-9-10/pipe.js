@@ -12,6 +12,7 @@ class Pipe{
             x: -1,
             y: 0,
         };
+        //gap between upper and lower pipe is fix
         this.gap = 150;
         // this.upPipe = new Image();
         // this.upPipe.src = "./images/";
